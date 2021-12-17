@@ -1,0 +1,27 @@
+<h2>New movie</h2>
+<form action="/movies/create" method="post">
+  <label> Title:
+    <input type="text" name="title" />
+  </label>
+  <label> Genre:
+    <input type="text" name="genre" />
+  </label>
+  <label> Plot:
+    <input type="text" name="plot" />
+  </label>
+
+  <label> Cast: </label>
+    {{!-- <input type="text" name="cast" /> --}}
+    <select name="cast" id="cast" multiple>
+        {{#each celebrities}} 
+            <option value="{{ _id }}">{{ name }}</option>
+            {{!-- <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option> --}}
+        {{/each}}
+   </select>
+
+  <button type="submit"> Submit </button>
+</form>
+
+{{!-- Make sure you pass all the celebrities from your database so your users can choose which ones are in the cast of the movie you're just creating (hint: You will have to use select multiple tag) --}}
