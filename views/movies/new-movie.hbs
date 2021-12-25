@@ -1,23 +1,25 @@
 <h2>New movie</h2>
 <form action="/movies/create" method="post">
-  <label> Title:
+  <label>
+    Title:
     <input type="text" name="title" />
   </label>
-  <label> Genre:
+  <label>
+    Genre:
     <input type="text" name="genre" />
   </label>
-  <label> Plot:
+  <label>
+    Plot:
     <input type="text" name="plot" />
   </label>
 
   <label for="cast"> Cast: </label>
 
-{{!-- ******** NO FUNCIONA DROPDOWN LIST ******** --}}
-    <select name="cast" id="cast" multiple>
-        {{#each celebrities}} 
-            <option value="{{ _id }}">{{ name }}</option>
-        {{/each}}
-   </select>
+  <select name="cast" id="cast" multiple>
+    {{#each celebritiesFromDB}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
 
   <button type="submit"> Submit </button>
 </form>

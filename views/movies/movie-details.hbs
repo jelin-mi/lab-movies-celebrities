@@ -2,17 +2,15 @@
 <p><strong>Title: </strong>{{movieDetail.title}}</p>
 <p><strong>Genre: </strong>{{movieDetail.genre}}</p>
 <p><strong>Plot: </strong>{{movieDetail.plot}}</p>
-<p><strong>Cast: </strong>
+<p><strong>Cast: </strong></p>
 
-
-{{!-- ******** NO FUNCIONA ******** --}}
 {{#each movieDetail.cast}}
-  <p>{{ this.name }}</p>
-  <p>{{ this.occupation }}</p>
-  <p>{{ this.catchPhrase }}</p>
+  <ul>
+    <li>name: {{this.name}}</li>
+    <li>occupation: {{this.occupation}}</li>
+    <li>catch phrase: {{this.catchPhrase}}</li>
+  </ul>
 {{/each}}
-
-</p>
 
 <form action="/movies/{{movieDetail._id}}/delete" method="post">
   <button>Delete movie</button>

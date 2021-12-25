@@ -14,18 +14,18 @@ router.post("/celebrities/create", (req, res, next) => {
 
   Celebrity.create({ name, occupation, catchPhrase })
     .then(() => res.redirect("/celebrities"))
-    .catch(() => res.render('celebrities/new-celebrity'));
+    .catch(() => res.render("celebrities/new-celebrity"));
 });
 
-
 // List celebrities
-router.get('/celebrities', (req, res, next) => {
-
-    Celebrity.find({})
-    .then((celebrities) => res.render('celebrities/celebrities', { celebrities }))
-    .catch(error => {
-        next(error);
-      })
-})
+router.get("/celebrities", (req, res, next) => {
+  Celebrity.find({})
+    .then((celebrities) =>
+      res.render("celebrities/celebrities", { celebrities })
+    )
+    .catch((error) => {
+      next(error);
+    });
+});
 
 module.exports = router;
